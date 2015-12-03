@@ -29,6 +29,7 @@ import java.util.TreeMap;
 public class Solution {
     public static void main(String[] args) {
         Map<String, Double> zarplata = new TreeMap<>();
+        double maxValue = Double.MIN_VALUE;
 
         try {
             BufferedReader fin = new BufferedReader(new FileReader(args[0]));
@@ -39,18 +40,23 @@ public class Solution {
 
                 if (split > 0) {
                     String currName = currLine.substring(0, split);
-                    Double currEntry = Double.parseDouble(currLine.substring(split + 1));
+                    Double currValue = Double.parseDouble(currLine.substring(split + 1));
 
                     if (zarplata.containsKey(currName)) {
-                        currEntry += zarplata.get(currName);
-                        zarplata.put(currName, currEntry);
+                        currValue += zarplata.get(currName);
+                        zarplata.put(currName, currValue);
                     } else
-                        zarplata.put(currName, currEntry);
+                        zarplata.put(currName, currValue);
+
+                    if (currValue > maxValue)
+                        maxValue = currValue;
                 }
             }
-
             fin.close();
         } catch (IOException naxep) {}
 
+        for (Map.Entry<String, Double> entry : zarplata.entrySet())
+            if (entry.getValue().equals(maxValue))
+                System.out.println(entry.getKey());
     }
 }
