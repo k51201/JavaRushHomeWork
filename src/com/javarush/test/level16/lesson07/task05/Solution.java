@@ -14,6 +14,22 @@ public class Solution {
         Plane plane3 = new Plane("Самолет #3");
     }
 
+    private static void waiting() {
+        //add your code here - добавь код тут
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+        }
+    }
+
+    private static void takingOff() {
+        //fix this method - исправь этот метод
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+        }
+    }
+
     public static class Plane extends Thread {
         public Plane(String name) {
             super(name);
@@ -35,22 +51,6 @@ public class Solution {
                     waiting(); //ожидает
                 }
             }
-        }
-    }
-
-    private static void waiting() {
-        //add your code here - добавь код тут
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-        }
-    }
-
-    private static void takingOff() {
-        //fix this method - исправь этот метод
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
         }
     }
 

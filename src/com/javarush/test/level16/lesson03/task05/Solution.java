@@ -12,9 +12,25 @@ import java.util.Date;
 */
 
 public class Solution {
+    public static int delay = 1000;
+
     public static void main(String[] args) {
         Thread violin = new Thread(new Violin("Player"));
         violin.start();
+    }
+
+    public static void sleepNSeconds(int n) {
+        try {
+            Thread.sleep(n * delay);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static interface MusicalInstrument extends Runnable {
+        Date startPlaying();
+
+        Date stopPlaying();
     }
 
     public static class Violin implements MusicalInstrument {
@@ -41,21 +57,5 @@ public class Solution {
             long playing = stopPlaying().getTime() - start.getTime();
             System.out.println("Playing " + playing + " ms");
         }
-    }
-
-    public static int delay = 1000;
-
-    public static void sleepNSeconds(int n) {
-        try {
-            Thread.sleep(n * delay);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static interface MusicalInstrument extends Runnable {
-        Date startPlaying();
-
-        Date stopPlaying();
     }
 }

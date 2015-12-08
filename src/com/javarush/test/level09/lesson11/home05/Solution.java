@@ -18,6 +18,8 @@ import java.io.InputStreamReader;
 */
 
 public class Solution {
+    public static char[] vowels = new char[]{'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
+
     public static void main(String[] args) throws Exception {
         //Написать тут ваш код
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,9 +33,6 @@ public class Solution {
                 System.out.print(c + " ");
         System.out.println();
     }
-
-
-    public static char[] vowels = new char[]{'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
 
     //метод проверяет, гласная ли буква
     public static boolean isVowel(char c) {

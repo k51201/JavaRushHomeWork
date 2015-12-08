@@ -12,9 +12,9 @@ public class Solution
 
     public class Cat
     {
+        public int weight;
         private String name;
         private int age;
-        public int weight;
 
         public Cat(String name, int age, int weight)
         {

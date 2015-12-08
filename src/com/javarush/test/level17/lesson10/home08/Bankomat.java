@@ -16,19 +16,8 @@ package com.javarush.test.level17.lesson10.home08;
 
 public class Bankomat {
 
-    static BankAccount account = new BankAccount("Amigo");
-
     public static volatile boolean isStopped;
-
-    public static void main(String[] args) throws InterruptedException {
-        addMoney.start();
-        new SpendThread();
-        new SpendThread();
-        new SpendThread();
-        Thread.sleep(4000);
-        isStopped = true;
-    }
-
+    static BankAccount account = new BankAccount("Amigo");
     private static Thread addMoney = new Thread() {
         @Override
         public void run() {
@@ -43,6 +32,14 @@ public class Bankomat {
         }
     };
 
+    public static void main(String[] args) throws InterruptedException {
+        addMoney.start();
+        new SpendThread();
+        new SpendThread();
+        new SpendThread();
+        Thread.sleep(4000);
+        isStopped = true;
+    }
 
     public static class SpendThread extends Thread {
         public SpendThread() {

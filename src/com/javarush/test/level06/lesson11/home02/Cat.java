@@ -10,10 +10,10 @@ import java.util.ArrayList;
 
 public class Cat {
 
-    public Cat() {
-    }
     //add your code here - добавь свой код тут
     public static ArrayList<Cat> cats = new ArrayList<Cat>();
+    public Cat() {
+    }
 
     public static void main(String[] args) {
         //Create 10 Cat-s here - создай 10 котов тут

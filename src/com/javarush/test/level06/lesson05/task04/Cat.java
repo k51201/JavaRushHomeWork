@@ -11,10 +11,10 @@ public class Cat {
         catCount++;
     }
 
-    protected void finalize() throws Throwable {
-        catCount--;
+    public static void main(String[] args) {
     }
 
-    public static void main(String[] args) {
+    protected void finalize() throws Throwable {
+        catCount--;
     }
 }

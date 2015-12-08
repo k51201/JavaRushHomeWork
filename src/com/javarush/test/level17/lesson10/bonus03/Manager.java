@@ -9,19 +9,18 @@ public class Manager {      //singleton
     private static Manager ourInstance = new Manager();
 
     private final List<Table> restaurantTables = new ArrayList<Table>(10);
-    private int currentIndex = 0;
-
     private final Queue<Order> orderQueue = new ConcurrentLinkedQueue<Order>();        // очередь с заказами
     private final Queue<Dishes> dishesQueue = new ConcurrentLinkedQueue<Dishes>();     // очередь с готовыми блюдами
-
-    public synchronized static Manager getInstance() {
-        return ourInstance;
-    }
+    private int currentIndex = 0;
 
     private Manager() {               // создаем 10 столов
         for (int i = 0; i < 10; i++) {
             restaurantTables.add(new Table());
         }
+    }
+
+    public synchronized static Manager getInstance() {
+        return ourInstance;
     }
 
     public synchronized Table getNextTable() {           // официант ходит по кругу от 1 стола к 10

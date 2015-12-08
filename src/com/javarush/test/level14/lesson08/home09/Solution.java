@@ -32,6 +32,7 @@ public class Solution
     static class Person
     {
         public String name;
+        private List<Money> allMoney;
 
         Person(String name)
         {
@@ -41,8 +42,6 @@ public class Solution
             allMoney.add(new Hrivna(50));
             allMoney.add(new USD(12.99));
         }
-
-        private List<Money> allMoney;
 
         public List<Money> getAllMoney()
         {

@@ -9,6 +9,14 @@ import java.util.List;
 */
 
 public class Solution {
+    public interface ATableInterface {
+        void setModel(List rows);
+
+        String getHeaderText();
+
+        void setHeaderText(String newHeaderText);
+    }
+
     public class TableInterfaceWrapper implements ATableInterface {
 
         private ATableInterface table;
@@ -32,13 +40,5 @@ public class Solution {
         public void setHeaderText(String newHeaderText) {
             table.setHeaderText(newHeaderText);
         }
-    }
-
-    public interface ATableInterface {
-        void setModel(List rows);
-
-        String getHeaderText();
-
-        void setHeaderText(String newHeaderText);
     }
 }

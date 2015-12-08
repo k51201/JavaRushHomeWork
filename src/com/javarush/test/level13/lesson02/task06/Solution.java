@@ -13,13 +13,13 @@ public class Solution {
         System.out.println(Matrix.TRINITY);
     }
 
+    interface DBObject {
+        DBObject initializeIdAndName(long id, String name);
+    }
+
     static class Matrix {
         public static DBObject NEO = new User().initializeIdAndName(1, "Neo");
         public static DBObject TRINITY = new User().initializeIdAndName(2, "Trinity");
-    }
-
-    interface DBObject {
-        DBObject initializeIdAndName(long id, String name);
     }
 
     static class User implements DBObject {

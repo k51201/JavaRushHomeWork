@@ -5,6 +5,12 @@ synchronized существенно замедляет программу, по�
 */
 
 public class Solution {
+    private static final java.io.ObjectStreamField[] serialPersistentFields =
+            {
+                    new java.io.ObjectStreamField("value", char[].class),
+                    new java.io.ObjectStreamField("count", Integer.TYPE),
+                    new java.io.ObjectStreamField("shared", Boolean.TYPE),
+            };
     char[] value;
     int count;
 
@@ -27,13 +33,6 @@ public class Solution {
         //do something here....
         return this;
     }
-
-    private static final java.io.ObjectStreamField[] serialPersistentFields =
-            {
-                    new java.io.ObjectStreamField("value", char[].class),
-                    new java.io.ObjectStreamField("count", Integer.TYPE),
-                    new java.io.ObjectStreamField("shared", Boolean.TYPE),
-            };
 
     private synchronized void writeObject(java.io.ObjectOutputStream s) throws java.io.IOException {
         java.io.ObjectOutputStream.PutField fields = s.putFields();

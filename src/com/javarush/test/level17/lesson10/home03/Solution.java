@@ -28,6 +28,23 @@ public class Solution {
         isStopped = true;
     }
 
+    public static int getRandomCount() {
+        return (int) (Math.random() * 3) + 1;
+    }
+
+    public static Drug getRandomDrug() {
+        int index = (int) ((Math.random() * 1000) % (drugsController.allDrugs.size()));
+        List<Drug> drugs = new ArrayList<Drug>(drugsController.allDrugs.keySet());
+        return drugs.get(index);
+    }
+
+    private static void waitAMoment() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+        }
+    }
+
     public static class Apteka implements Runnable {
 
         @Override
@@ -49,23 +66,6 @@ public class Solution {
                 drugsController.sell(getRandomDrug(), getRandomCount());
                 waitAMoment();
             }
-        }
-    }
-
-    public static int getRandomCount() {
-        return (int) (Math.random() * 3) + 1;
-    }
-
-    public static Drug getRandomDrug() {
-        int index = (int) ((Math.random() * 1000) % (drugsController.allDrugs.size()));
-        List<Drug> drugs = new ArrayList<Drug>(drugsController.allDrugs.keySet());
-        return drugs.get(index);
-    }
-
-    private static void waitAMoment() {
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
         }
     }
 }

@@ -6,6 +6,15 @@ package com.javarush.test.level17.lesson10.home10;
 */
 
 public class Solution {
+    public static Integer count = 0;
+    public static int[] values = new int[105];
+
+    static {
+        for (int i = 0; i < 105; i++) {
+            values[i] = 0;
+        }
+    }
+
     public static void main(String[] args) throws InterruptedException {
         Counter counter1 = new Counter();
         Counter counter2 = new Counter();
@@ -26,15 +35,6 @@ public class Solution {
                 System.out.println("Массив values содержит элементы неравные 1");
                 break;
             }
-        }
-    }
-
-    public static Integer count = 0;
-    public static int[] values = new int[105];
-
-    static {
-        for (int i = 0; i < 105; i++) {
-            values[i] = 0;
         }
     }
 

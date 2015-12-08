@@ -23,6 +23,32 @@ public class Solution {
         countries.put("CA", "Canada");
     }
 
+    public static interface IncomeData {
+        String getCountryCode();        //example UA
+
+        String getCompany();            //example JavaRush Ltd.
+
+        String getContactFirstName();   //example Ivan
+
+        String getContactLastName();    //example Ivanov
+
+        int getCountryPhoneCode();      //example 38
+
+        int getPhoneNumber();           //example 501234567
+    }
+
+    public static interface Customer {
+        String getCompanyName();        //example JavaRush Ltd.
+
+        String getCountryName();        //example Ukraine
+    }
+
+    public static interface Contact {
+        String getName();               //example Ivanov, Ivan
+
+        String getPhoneNumber();        //example +38(050)123-45-67
+    }
+
     public static class IncomeDataAdapter implements Customer, Contact{
 
         private IncomeData incomeData;
@@ -56,31 +82,5 @@ public class Solution {
         public String getCountryName() {
             return countries.get(incomeData.getCountryCode());
         }
-    }
-
-    public static interface IncomeData {
-        String getCountryCode();        //example UA
-
-        String getCompany();            //example JavaRush Ltd.
-
-        String getContactFirstName();   //example Ivan
-
-        String getContactLastName();    //example Ivanov
-
-        int getCountryPhoneCode();      //example 38
-
-        int getPhoneNumber();           //example 501234567
-    }
-
-    public static interface Customer {
-        String getCompanyName();        //example JavaRush Ltd.
-
-        String getCountryName();        //example Ukraine
-    }
-
-    public static interface Contact {
-        String getName();               //example Ivanov, Ivan
-
-        String getPhoneNumber();        //example +38(050)123-45-67
     }
 }

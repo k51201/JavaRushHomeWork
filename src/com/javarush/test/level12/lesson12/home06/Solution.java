@@ -10,6 +10,18 @@ package com.javarush.test.level12.lesson12.home06;
 
 public class Solution {
 
+    public interface Fly {
+        void fly();
+    }
+
+    public interface Climb {
+        void climb();
+    }
+
+    public interface Run {
+        void run();
+    }
+
     public class Cat implements Climb, Run {
         @Override
         public void climb() {
@@ -42,17 +54,5 @@ public class Solution {
         public void fly() {
 
         }
-    }
-
-    public interface Fly {
-        void fly();
-    }
-
-    public interface Climb {
-        void climb();
-    }
-
-    public interface Run {
-        void run();
     }
 }

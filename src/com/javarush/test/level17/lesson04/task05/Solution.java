@@ -12,6 +12,9 @@ public class Solution {
 
         private static IMF imf;
 
+        private IMF() {
+        }
+
         public static IMF getFund() {
             //add your code here - добавь код тут
             synchronized (IMF.class) {
@@ -19,9 +22,6 @@ public class Solution {
                     imf = new IMF();
             }
             return imf;
-        }
-
-        private IMF() {
         }
     }
 }
