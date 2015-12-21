@@ -39,7 +39,7 @@ public class Solution {
             String currLine = fin.readLine();
             if (!currLine.isEmpty()) {
                 lines.add(currLine);
-                int currId = Integer.parseInt(currLine.substring(0, 7));
+                int currId = Integer.parseInt(currLine.substring(0, 8).trim());
                 if (maxId < currId)
                     maxId = currId;
             }
@@ -59,6 +59,7 @@ public class Solution {
         PrintWriter fout = new PrintWriter(tableFile);
         for (String line : lines)
             fout.println(line);
+        fout.close();
     }
 
     private static String trimLineToSize(String line, int size) {
